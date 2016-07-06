@@ -110,9 +110,12 @@ void test5()
     v[3] = 2;
     printVector(v);
     // 当 删除迭代器所指向的元素的时候,erase删除函数会让it自动下移动
-    for (vector<int>::iterator it=v.begin(); it!=v.end(); it++)
+    for (vector<int>::iterator it=v.begin(); it!=v.end();) {
         if (*it==2)
             it = v.erase(it);
+        else
+            it++;
+    }
 
     printVector(v);
 
